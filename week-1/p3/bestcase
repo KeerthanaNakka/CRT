@@ -1,0 +1,62 @@
+import java.util.Scanner;
+class Solution
+{
+	static int function(int[] a,int n)
+	{
+		int[] b=new int[100];
+		int i=0;int k=0;int j=i+1;int xor1;int c,max=0;
+		while(j<n)
+		{
+			c=a[i];
+			xor1=c^a[j];
+			b[k]=xor1;
+			if(j==n-1)
+			{
+				i++;
+				j=i+1;
+			}
+			else
+				j++;
+			if(max<b[k])
+				max=b[k];
+			k++;
+		}
+		
+		return max;
+	}
+	
+	public static void main(String args[])
+	{
+		Scanner s=new Scanner(System.in);
+		int t=s.nextInt();
+		int[] exop=new int[t];
+		for(int j=0;j<t;j++)
+			exop[j]=s.nextInt();
+		int[] actop=new int[t];
+		for(int i=0;i<t;i++)
+		{
+			int n=s.nextInt();
+			int[] a=new int[n];
+			for(int j=0;j<n;j++)
+				a[j]=s.nextInt();
+			
+			actop[i]= function(a,n);
+		}
+		for(int i=0;i<t;i++)
+		{
+			if(actop[i]!=exop[i])
+			{
+				System.out.println("Error");
+				break;
+			}
+			else
+			{
+				System.out.print(actop[i]+" ");
+			}
+		}
+		System.out.println();
+	}
+	
+
+
+}
