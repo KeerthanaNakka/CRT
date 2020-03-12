@@ -2,8 +2,8 @@
 	import java.util.*;
 class Replace
 {
-	static int count(int n)
-	{
+	static int count(int n)				// inappropriate function name
+	{						// input - 874426 -> output - 31 but expected output - 27
 		int c=0;
 		while(n!=1)
 		{
