@@ -45,9 +45,9 @@ class Replace
 		{
 			if(actop[i]!=exop[i])
 			{
-				System.out.print("Error->"+actop[i]);
+				System.out.print("Error");
 
-				//break;
+				break;
 			}
 			else
 				System.out.print(actop[i]+" ");
