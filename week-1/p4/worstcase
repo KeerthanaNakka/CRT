@@ -1,0 +1,68 @@
+import java.util.*;
+class Replace
+{
+	static int count(int n)
+	{
+		int c=0,d=0;
+		int n1=n;
+		while(n!=1)
+		{
+			if(n%2==0)
+			{
+				c++;
+				n=n>>1;
+			}
+			else
+			{
+				n=n-1;
+				c++;
+			}
+			
+		}
+		n=n1;
+		while(n!=1)
+		{
+			if(n%2==0)
+			{
+				d++;
+				n=n>>1;
+			}
+			else
+			{
+				n=n-1;
+				d++;
+			}
+		}
+
+		if(c<d)
+			return c;
+		else 
+			return d;
+	}
+	public static void main(String args[])
+	{
+		Scanner s=new Scanner(System.in);
+		int t=s.nextInt();
+		int[] exop=new int[t];
+		for(int i=0;i<t;i++)
+			exop[i]=s.nextInt();
+		int[] actop=new int[t];
+		for(int i=0;i<t;i++)
+		{
+			int n=s.nextInt();
+			actop[i]=count(n);
+		}
+		for(int i=0;i<t;i++)
+		{
+			if(actop[i]!=exop[i])
+			{
+				System.out.print("Error");
+				break;
+			}
+			else
+				System.out.print(actop[i]+" ");
+		}
+
+	}
+
+}
