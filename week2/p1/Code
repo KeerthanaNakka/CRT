@@ -1,1 +1,41 @@
-
+import java.util.*;
+class Parenthesis
+{
+	void printParenthesis(int op,int cp,String s)
+	{
+		if(op==0 && cp==0)
+		{
+			System.out.println(s);
+		}
+		if(op>cp)
+		{
+			return ;
+		}
+		if(op>0)
+		{
+			printParenthesis(op-1,cp,s+"(");
+		}
+		if(cp>0)
+		{
+			printParenthesis(op,cp-1,s+")");
+		}
+	}
+	void usedFunction(int op,int cp,String s)
+	{
+		printParenthesis(op,cp,s);
+	}
+	public static void main(String args[])
+	{
+		Scanner sc=new Scanner(System.in);
+		Parenthesis p=new Parenthesis();
+		int n=sc.nextInt();
+		if(n%2!=0)
+		{
+			System.out.println("No Valid parenthesis");
+		}
+		else
+		{
+			p.usedFunction(n/2,n/2,"");
+		}
+	}
+}
