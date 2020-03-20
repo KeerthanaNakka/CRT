@@ -1,28 +1,41 @@
 import java.util.*;
-class Median
+class Merge 
 {
-	static int findMedian(int a[], int b[],int n)
+	static void mergeArrays(int a[],int b[],int c[],int n)
 	{
-		if(n%2!=0)
+		int k=0;
+		for(int i=0;i<n;i++)
 		{
-			return (a[n/2]+b[n/2])/2;
+			if(a[i]>b[i])
+			{
+				c[k++]=b[i];
+				c[k++]=a[i];
+			}
+			else
+			{
+				c[k++]=a[i];
+				c[k++]=b[i];
+			}
 		}
+		if(k%2==0)
+			System.out.print((c[k/2]+c[(k-1)/2])/2);
 		else
-		{
-			return (((a[n/2]+a[(n-1)/2])/2)+(b[n/2]+b[(n-1)/2])/2)/2;
-		}
+			System.out.print(c[k/2]);
+
 	}
-	public static void main(String args[])
+
+	public static void main(String[] args) 
 	{
-		int i;
 		Scanner s=new Scanner(System.in);
 		int n=s.nextInt();
 		int[] a=new int[n];
 		int[] b=new int[n];
-		for(i=0;i<n;i++)
+		int[] c=new int[2*n];
+		for(int i=0;i<n;i++)
 			a[i]=s.nextInt();
-		for(i=0;i<n;i++)
+		for(int i=0;i<n;i++)
 			b[i]=s.nextInt();
-		System.out.print(findMedian(a,b,n));
+		mergeArrays(a,b,c,n);
 	}
 }
+
